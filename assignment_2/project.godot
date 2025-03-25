@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="assignment_2"
+run/main_scene="uid://bqp4ts3badjii"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://lang/locale.jp.translation", "res://lang/locale.es.translation", "res://lang/locale.en.translation")

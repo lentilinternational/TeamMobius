@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqp4ts3badjii"]
+
+[ext_resource type="Script" uid="uid://x1m8x2gwn7oy" path="res://localisation.gd" id="1_hkgnn"]
+
+[node name="Localisation" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hkgnn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 3.0
+offset_right = 283.0
+offset_bottom = 52.0
+text = "greeting
+"
+
+[node name="LabelVehicle" type="Label" parent="."]
+offset_left = 281.0
+offset_top = 4.0
+offset_right = 409.0
+offset_bottom = 34.0
+text = "vehicle"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 31.0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "en"
+popup/item_0/id = 0
+popup/item_1/text = "es"
+popup/item_1/id = 1
+popup/item_2/text = "jp"
+popup/item_2/id = 2
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
