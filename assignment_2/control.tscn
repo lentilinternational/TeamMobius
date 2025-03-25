@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm6f67f6s5jgw"]
+
+[ext_resource type="Script" uid="uid://cltv1q7c7lcbr" path="res://control.gd" id="1_0fbet"]
+[ext_resource type="AudioStream" uid="uid://dhfxmhyt5onln" path="res://coin-recieved-230517.mp3" id="2_62e2m"]
+[ext_resource type="AudioStream" uid="uid://q7vgwac7meec" path="res://calming-rain-257596.mp3" id="3_qtu10"]
+[ext_resource type="AudioStream" uid="uid://d3wagvgphgfe0" path="res://mouse-click-290204.mp3" id="4_ee4bf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_62e2m")
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qtu10")
+autoplay = true
+parameters/looping = false
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ee4bf")
+autoplay = true
