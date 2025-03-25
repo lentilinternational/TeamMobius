@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfshceana5ftq"]
+
+[ext_resource type="Texture2D" uid="uid://vfe8fv3y3bb2" path="res://island-removebg-preview.png" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://c0tl0uhi747po" path="res://Glass_Window_003_basecolor.jpg" id="1_iy58a"]
+[ext_resource type="Texture2D" uid="uid://dsbw8eq3iluni" path="res://Glass_Window_003_ambientOcclusion.jpg" id="2_6a6wx"]
+[ext_resource type="Texture2D" uid="uid://y47ymm2xuuwr" path="res://Glass_Window_003_height.png" id="3_sky72"]
+[ext_resource type="Texture2D" uid="uid://brqjyx66e3akg" path="res://Glass_Window_003_metallic.jpg" id="4_0ytqx"]
+[ext_resource type="Texture2D" uid="uid://b1wcb3cj42e06" path="res://Glass_Window_003_normal.jpg" id="5_pxugv"]
+[ext_resource type="Texture2D" uid="uid://b7dcy0k14ub15" path="res://Glass_Window_003_roughness.jpg" id="6_eh0v1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbet"]
+transparency = 1
+albedo_color = Color(0.647816, 0.223877, 0.528983, 0.745098)
+albedo_texture = ExtResource("1_iy58a")
+metallic = 1.0
+metallic_texture = ExtResource("4_0ytqx")
+roughness_texture = ExtResource("6_eh0v1")
+normal_enabled = true
+normal_texture = ExtResource("5_pxugv")
+ao_enabled = true
+ao_texture = ExtResource("2_6a6wx")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_sky72")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.809612, 0, 0.586966, 0, 1, 0, -0.586966, 0, 0.809612, 1.53307, 0, 0.977708)
+light_color = Color(0.549577, 0.443939, 0.598231, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.579608, 0)
+material = SubResource("StandardMaterial3D_0fbet")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145937, -2.50664)
+material = SubResource("StandardMaterial3D_0fbet")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579.5, 328.669)
+scale = Vector2(1.73423, 1.73423)
+texture = ExtResource("1_0fbet")
+
+[node name="Camera3D" type="Camera3D" parent="Sprite2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60535, 2.21167)
