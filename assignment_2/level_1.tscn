@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwm6awi8734q5"]
+
+[ext_resource type="Script" uid="uid://btxd6dk1eouxq" path="res://level_1.gd" id="1_3hls8"]
+[ext_resource type="Texture2D" uid="uid://d3a0rr0ag07vy" path="res://Pc.png" id="2_hbghi"]
+[ext_resource type="Texture2D" uid="uid://cwmloduyvnwp2" path="res://secret_island.png" id="3_hn12h"]
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_3hls8")
+
+[node name="Pc" type="Sprite2D" parent="."]
+position = Vector2(573, 392)
+scale = Vector2(1.32667, 1.32667)
+texture = ExtResource("2_hbghi")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 517.0
+offset_top = 53.0
+offset_right = 610.0
+offset_bottom = 92.0
+theme_type_variation = &"HeaderLarge"
+text = "Level 1"
+
+[node name="Label" type="Label" parent="Label"]
+modulate = Color(1.68458e-07, 0.511604, 0.357489, 1)
+offset_left = 720.0
+offset_top = 104.0
+offset_right = 1093.0
+offset_bottom = 185.0
+theme_type_variation = &"HeaderLarge"
+text = "WOW! You found the secret fullscreen island!"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 856.0
+offset_top = 390.0
+offset_right = 900.0
+offset_bottom = 414.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 375.0
+offset_top = 149.0
+offset_right = 512.0
+offset_bottom = 180.0
+text = "Switch to Level 2
+"
+
+[node name="SecretIsland" type="Sprite2D" parent="."]
+position = Vector2(536.564, 1018)
+scale = Vector2(1.33141, 1.20333)
+texture = ExtResource("3_hn12h")
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

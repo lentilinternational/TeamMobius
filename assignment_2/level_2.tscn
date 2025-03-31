@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://gk7gobovxrox"]
+
+[ext_resource type="Script" uid="uid://chqm27y7petmd" path="res://level_2.gd" id="1_nmjpi"]
+[ext_resource type="Texture2D" uid="uid://d4hydqhrwkxhy" path="res://screen.png" id="2_nmjpi"]
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_nmjpi")
+
+[node name="Screen" type="Sprite2D" parent="."]
+position = Vector2(607, 343)
+scale = Vector2(1.13667, 1.13667)
+texture = ExtResource("2_nmjpi")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 246.0
+offset_top = 102.0
+offset_right = 790.0
+offset_bottom = 183.0
+theme_type_variation = &"HeaderLarge"
+text = "> Press RETURN to go to previous screen
+> Press ESC to exit"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 762.0
+offset_top = 544.0
+offset_right = 877.0
+offset_bottom = 575.0
+tooltip_text = "Press Plus or Minus to Decrease the resolution on the previous screen
+
+"
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1171.0
+offset_top = 228.0
+offset_right = 1597.0
+offset_bottom = 251.0
+text = "Hover over the check menu on this level to see a secret"
+
+[node name="Label2" type="Label" parent="Label2"]
+offset_left = -637.0
+offset_top = -191.0
+offset_right = -572.0
+offset_bottom = -168.0
+text = "Level 2"
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
