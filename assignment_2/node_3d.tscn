@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccb5vlafllt0m"]
+
+[ext_resource type="ArrayMesh" uid="uid://bpfe05p6hmden" path="res://Molotov.obj" id="2_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://cn15fnpav7nir" path="res://Jye_Run_2.png" id="4_r3fl7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_noarx"]
+sky_material = SubResource("ProceduralSkyMaterial_a202f")
+
+[sub_resource type="Environment" id="Environment_a0tk4"]
+background_mode = 2
+sky = SubResource("Sky_noarx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a202f"]
+size = Vector2(10, 10)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_a202f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a0tk4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999998, 0, 0.00212936, 0, 1, 0, -0.00212936, 0, -0.999998, -0.134428, 0, -4.98516)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.935577, -0.215182, 0.279985, 0.253476, 0.96127, -0.108216, -0.245855, 0.172214, 0.953886, 1.48804, -4.25337, -4.38773)
+mesh = SubResource("PlaneMesh_a202f")
+
+[node name="Molotov2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254297, 0, 0.124864)
+mesh = ExtResource("2_r3fl7")
+surface_material_override/0 = SubResource("ORMMaterial3D_a202f")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="JyeRun2" type="Sprite2D" parent="Node2D"]
+position = Vector2(384, 316)
+scale = Vector2(0.595312, 0.581481)
+texture = ExtResource("4_r3fl7")
