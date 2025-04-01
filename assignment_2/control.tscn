@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxepbuoypn4h0"]
+
+[ext_resource type="Script" uid="uid://dshr3mpaiboui" path="res://control.gd" id="1_0fbet"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -9.0
+offset_right = 18.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 57.0
+offset_right = 1036.0
+offset_bottom = 80.0
+text = "Press Space, Up arrow, W, X/A (PS/Xbox) to say you have jumped.
+
+Press left arrow, A, left on Left Joystick to say you have pressed left"
