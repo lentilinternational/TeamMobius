@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdscm8ir2rcpf"]
+[gd_scene load_steps=10 format=3 uid="uid://cdscm8ir2rcpf"]
 
 [ext_resource type="Script" uid="uid://dwtop1tcidgj" path="res://node_3d.gd" id="1_a202f"]
-[ext_resource type="Script" uid="uid://s2as6kfwbe7y" path="res://player.gd" id="2_noarx"]
 [ext_resource type="Script" uid="uid://d0q6ilio72ok5" path="res://player_2.gd" id="3_a0tk4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a0tk4"]
@@ -48,6 +47,24 @@ mesh = SubResource("PlaneMesh_a0tk4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_noarx")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.0216404, 0, -0.999766, 0, 1, 0, 0.999766, 0, -0.0216404, 23.4942, 0, 0)
+mesh = SubResource("PlaneMesh_a0tk4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_noarx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 0.941993, -0.335632, 0, 0.335632, 0.941993, 0, -0.0107512, -8.51036)
+mesh = SubResource("PlaneMesh_a0tk4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_noarx")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a0tk4")
 
@@ -55,40 +72,30 @@ environment = SubResource("Environment_a0tk4")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69482, 0)
-script = ExtResource("2_noarx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.999974, -0.00724302, 0, 0.00724302, 0.999974, 0, 1.25627, -1.8323)
-mesh = SubResource("CapsuleMesh_jka67")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.999946, -0.0103495, 0, 0.0103495, 0.999946, 0, 1.25627, -1.7725)
-shape = SubResource("ConvexPolygonShape3D_i5arm")
-
-[node name="twist_pivot" type="Node3D" parent="Player"]
-
-[node name="pitch_pivot" type="Node3D" parent="Player/twist_pivot"]
-
 [node name="Player2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69482, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("3_a0tk4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player2"]
-transform = Transform3D(1, 0, 0, 0, 0.999974, -0.00724302, 0, 0.00724302, 0.999974, 0, 1.25627, -1.8323)
+transform = Transform3D(0.999979, 4.71526e-05, 0.00650987, 3.64879e-10, 0.999974, -0.00724302, -0.00651011, 0.00724287, 0.999953, 2.87028e-05, 1.25627, 0.061412)
 mesh = SubResource("CapsuleMesh_jka67")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player2"]
-transform = Transform3D(1, 0, 0, 0, 0.999946, -0.0103495, 0, 0.0103495, 0.999946, 0, 1.25627, -1.7725)
+transform = Transform3D(0.999979, 6.73758e-05, 0.00650969, -4.43046e-10, 0.999946, -0.0103495, -0.00650999, 0.0103493, 0.999925, -2.87028e-05, 1.25627, 0.0525946)
 shape = SubResource("ConvexPolygonShape3D_i5arm")
 
 [node name="twist_pivot" type="Node3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.15011)
 
 [node name="pitch_pivot" type="Node3D" parent="Player2/twist_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69482, 8.37378)
+[node name="Camera3D" type="Camera3D" parent="Player2/twist_pivot/pitch_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0.777, 3)
 
-[connection signal="sleeping_state_changed" from="Player" to="." method="_on_player_sleeping_state_changed"]
+[node name="RayCast3D" type="RayCast3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954554, 0)
+
 [connection signal="sleeping_state_changed" from="Player2" to="." method="_on_player_sleeping_state_changed"]
