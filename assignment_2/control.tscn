@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://regvd34co636"]
+
+[ext_resource type="Script" uid="uid://1infgrs2pl0y" path="res://control.gd" id="1_62e2m"]
+[ext_resource type="AudioStream" uid="uid://638jaxqbduln" path="res://bouncy-ball-on-tile-95978.mp3" id="2_qtu10"]
+[ext_resource type="AudioStream" uid="uid://dmvavg7p0o828" path="res://grab-clothes-foley-308655.mp3" id="3_qtu10"]
+[ext_resource type="AudioStream" uid="uid://c76k72nb3xmoj" path="res://switch-button-106349.mp3" id="4_ee4bf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+
+[node name="Ball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qtu10")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Clothes" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qtu10")
+autoplay = true
+
+[node name="switch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ee4bf")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
