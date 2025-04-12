@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpcq1iui0a037"]
+
+[ext_resource type="Texture2D" uid="uid://ds1y207g3ag32" path="res://characters/Jye_Run_2 (1).png" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://pbv3v7o4ewai" path="res://character_body_2d.gd" id="3_0hol4"]
+[ext_resource type="PackedScene" uid="uid://bst3mn66xgibo" path="res://actionable.tscn" id="3_epypp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
+radius = 160.86
+
+[node name="Node2D" type="Node2D"]
+
+[node name="JyeRun2(1)2" type="Sprite2D" parent="."]
+position = Vector2(1001, 274)
+scale = Vector2(0.300521, 0.3)
+texture = ExtResource("1_0e48y")
+flip_h = true
+
+[node name="Actionable" parent="JyeRun2(1)2" instance=ExtResource("3_epypp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JyeRun2(1)2/Actionable"]
+position = Vector2(-219.619, 13.333)
+scale = Vector2(50, 50)
+shape = SubResource("CircleShape2D_0hol4")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(288.5, 292)
+scale = Vector2(0.338021, 0.353704)
+texture = ExtResource("1_0e48y")
+
+[node name="ActionableFinder" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/ActionableFinder"]
+position = Vector2(319, 302)
+shape = SubResource("CircleShape2D_epypp")
