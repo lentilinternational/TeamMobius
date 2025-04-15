@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://los1x8q0nlxw"]
+
+[ext_resource type="PackedScene" uid="uid://rrpl6tcqj25p" path="res://necro.tscn" id="1_ulcgi"]
+
+[node name="scene" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ulcgi")]
+position = Vector2(-2, 2)

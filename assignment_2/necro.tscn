@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://rrpl6tcqj25p"]
+
+[ext_resource type="Texture2D" uid="uid://cytbragguh8hh" path="res://Necromancer_creativekind-Sheet.png" id="1_38j16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev06f"]
+atlas = ExtResource("1_38j16")
+region = Rect2(9, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q578j"]
+atlas = ExtResource("1_38j16")
+region = Rect2(169, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6b0g"]
+atlas = ExtResource("1_38j16")
+region = Rect2(329, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh6bd"]
+atlas = ExtResource("1_38j16")
+region = Rect2(489, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncau2"]
+atlas = ExtResource("1_38j16")
+region = Rect2(649, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upoup"]
+atlas = ExtResource("1_38j16")
+region = Rect2(809, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmouy"]
+atlas = ExtResource("1_38j16")
+region = Rect2(969, 0, 143, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bj2k"]
+atlas = ExtResource("1_38j16")
+region = Rect2(1129, 0, 143, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aa1la"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev06f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q578j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6b0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh6bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncau2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upoup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmouy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bj2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(572, 234)
+scale = Vector2(6.71875, 6.71875)
+sprite_frames = SubResource("SpriteFrames_aa1la")
+autoplay = "default"
