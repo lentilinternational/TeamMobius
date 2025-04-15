@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch71umttueuhj"]
+
+[ext_resource type="Script" uid="uid://cap8o6dhfp0a1" path="res://explosion.gd" id="1_j4sxf"]
+[ext_resource type="Script" uid="uid://squyig0xu6m6" path="res://cpu_particles_2d.gd" id="1_vxas0"]
+
+[sub_resource type="Curve" id="Curve_vxas0"]
+_data = [Vector2(0, 0.955056), 0.0, 0.0, 0, 0, Vector2(0.948864, 0.0337079), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion" type="Node2D"]
+script = ExtResource("1_j4sxf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(275, 312)
+scale = Vector2(4.46, 4.46)
+emitting = false
+amount = 60
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_vxas0")
+script = ExtResource("1_vxas0")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(876, 341)
+scale = Vector2(4.46, 4.46)
+amount = 60
+lifetime = 0.5
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_vxas0")
+script = ExtResource("1_vxas0")
